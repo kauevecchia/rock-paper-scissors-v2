@@ -6,7 +6,7 @@ import { Modal } from "./components/Modal";
 
 export function App() {
     return (
-        <>
+        <div className="flex items-center justify-center flex-col font-poppins min-h-screen">
             <Header />
             <main className="mt-8 flex items-center justify-center flex-col gap-6 flex-grow">
                 <Play />
@@ -14,6 +14,6 @@ export function App() {
             </main>
             <Modal />
             <Footer />
-        </>
+        </div>
     )
 }
