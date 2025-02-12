@@ -8,8 +8,10 @@ export function App() {
     return (
         <>
             <Header />
-            <Play />
-            <Results />
+            <main className="mt-8 flex items-center justify-center flex-col gap-6 flex-grow">
+                <Play />
+                <Results />
+            </main>
             <Modal />
             <Footer />
         </>
