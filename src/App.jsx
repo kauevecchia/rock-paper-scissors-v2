@@ -3,8 +3,19 @@ import { Play } from "./components/Play";
 import { Results } from "./components/Results";
 import { Footer } from "./components/Footer";
 import { Modal } from "./components/Modal";
+import { useState } from "react";
 
 export function App() {
+    const [openModal, setOpenModal] = useState(false)
+
+    const handleModalOpen = () => {
+        setOpenModal(true)
+    }
+
+    const handleModalClose = () => {
+        setOpenModal(false)
+    }
+
     return (
         <div className="flex items-center justify-center flex-col font-poppins min-h-screen">
             <Header />
@@ -12,8 +23,8 @@ export function App() {
                 <Play />
                 <Results />
             </main>
-            <Modal />
-            <Footer />
+            <Modal isModalOpen={openModal}  handleCloseModal={handleModalClose} />
+            <Footer handleModalOpen={handleModalOpen} />
         </div>
     )
 }
