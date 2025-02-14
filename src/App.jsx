@@ -75,8 +75,8 @@ export function App() {
         <div className="flex items-center justify-center flex-col font-poppins min-h-screen">
             <Header gameState={gameState} />
             <main className="mt-8 flex items-center justify-center flex-col gap-6 flex-grow">
-                {playGame && <Play handlePlayGame={handlePlayGame} />}
-                {playAgain && <Results handlePlayAgain={handlePlayAgain} />}
+                {gameState.playGame && <Play handlePlayGame={handlePlayGame} />}
+                {gameState.playAgain && <Results handlePlayAgain={handlePlayAgain} gameState={gameState} />}
             </main>
             <Modal isModalOpen={openModal}  handleCloseModal={handleModalClose} />
             <Footer handleModalOpen={handleModalOpen} />
