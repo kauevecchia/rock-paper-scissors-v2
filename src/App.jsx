@@ -70,10 +70,18 @@ export function App() {
             result: ""
         }))
     }
+
+    const resetScoreboard = () => {
+        setGameState(() => ({
+            ...gameState,
+            playerScore: 0,
+            machineScore: 0,
+        }))
+    }
  
     return (
         <div className="flex items-center justify-center flex-col font-poppins min-h-screen">
-            <Header gameState={gameState} />
+            <Header gameState={gameState} resetScoreboard={resetScoreboard} />
             <main className="mt-8 flex items-center justify-center flex-col gap-6 flex-grow">
                 {gameState.playGame && <Play handlePlayGame={handlePlayGame} />}
                 {gameState.playAgain && <Results handlePlayAgain={handlePlayAgain} gameState={gameState} />}
