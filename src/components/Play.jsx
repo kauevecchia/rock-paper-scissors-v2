@@ -3,6 +3,10 @@ import paperImg from '../assets/paper.svg'
 import scissorsImg from '../assets/scissors.svg'
 
 export function Play({ handlePlayGame }) {
+    const handleChoice = (playerChoice) => {
+        handlePlayGame(playerChoice)
+    }
+
     return (
         <div id="options-container" className="flex flex-col items-center justify-center animate-showUp">
             <h2 className="text-sky-700 font-bold text-2xl mb-4 md:text-3xl">Choose one: </h2>
