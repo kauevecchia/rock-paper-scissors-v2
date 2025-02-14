@@ -4,9 +4,12 @@ import { Results } from "./components/Results";
 import { Footer } from "./components/Footer";
 import { Modal } from "./components/Modal";
 import { useState } from "react";
+import { Error } from "./components/ErrorMessage";
 
 export function App() {
     const [openModal, setOpenModal] = useState(false)
+    const [displayError, setDisplayError] = useState(false)
+    const [lastRock, setLastRock] = useState(false)
 
     const [gameState, setGameState] = useState({
         playGame: true,
@@ -27,9 +30,19 @@ export function App() {
         setOpenModal(false)
     }
 
+    
+    
+
     const handlePlayGame = (playerChoice) => {
         const choices = ["rock", "paper", "scissors"]
         const machineChoice = choices[Math.floor(Math.random() * choices.length)]
+
+        if (playerChoice === "rock" && lastRock === true) {
+            setDisplayError(true)
+            return
+        }
+
+        setLastRock(playerChoice === "rock")
 
         let result = ""
         if (playerChoice === machineChoice) {
@@ -85,6 +98,7 @@ export function App() {
             <main className="mt-8 flex items-center justify-center flex-col gap-6 flex-grow">
                 {gameState.playGame && <Play handlePlayGame={handlePlayGame} />}
                 {gameState.playAgain && <Results handlePlayAgain={handlePlayAgain} gameState={gameState} />}
+                {displayError && <Error setDisplayError={setDisplayError} />}
             </main>
             <Modal isModalOpen={openModal}  handleCloseModal={handleModalClose} />
             <Footer handleModalOpen={handleModalOpen} />
