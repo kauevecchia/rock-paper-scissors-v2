@@ -8,6 +8,17 @@ import { useState } from "react";
 export function App() {
     const [openModal, setOpenModal] = useState(false)
 
+    const [gameState, setGameState] = useState({
+        playGame: true,
+        playAgain: false,
+        playerScore: 0,
+        machineScore: 0,
+        playerChoice: "",
+        machineChoice: "",
+        result: ""
+    })
+
+
     const handleModalOpen = () => {
         setOpenModal(true)
     }
