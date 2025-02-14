@@ -71,10 +71,9 @@ export function App() {
         }))
     }
  
- 
     return (
         <div className="flex items-center justify-center flex-col font-poppins min-h-screen">
-            <Header />
+            <Header gameState={gameState} />
             <main className="mt-8 flex items-center justify-center flex-col gap-6 flex-grow">
                 {playGame && <Play handlePlayGame={handlePlayGame} />}
                 {playAgain && <Results handlePlayAgain={handlePlayAgain} />}
