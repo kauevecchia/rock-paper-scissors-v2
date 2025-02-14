@@ -16,6 +16,20 @@ export function App() {
         setOpenModal(false)
     }
 
+    const [playGame, setPlayGame] = useState(true)
+    const [playAgain, setPlayAgain] = useState(false)
+
+    const handlePlayGame = () => {
+        setPlayGame(false)
+        setPlayAgain(true)
+    }
+
+    const handlePlayAgain = () => {
+        setPlayGame(true)
+        setPlayAgain(false)
+    }
+ 
+ 
     return (
         <div className="flex items-center justify-center flex-col font-poppins min-h-screen">
             <Header />
