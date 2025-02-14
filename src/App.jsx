@@ -61,8 +61,14 @@ export function App() {
     }
 
     const handlePlayAgain = () => {
-        setPlayGame(true)
-        setPlayAgain(false)
+        setGameState((prevState) => ({
+            ...prevState,
+            playGame: true,
+            playAgain: false,
+            playerChoice: "",
+            machineChoice: "",
+            result: ""
+        }))
     }
  
  
