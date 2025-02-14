@@ -27,12 +27,37 @@ export function App() {
         setOpenModal(false)
     }
 
-    const [playGame, setPlayGame] = useState(true)
-    const [playAgain, setPlayAgain] = useState(false)
+    const handlePlayGame = (playerChoice) => {
+        const choices = ["rock", "paper", "scissors"]
+        const machineChoice = choices[Math.floor(Math.random() * choices.length)]
 
-    const handlePlayGame = () => {
-        setPlayGame(false)
-        setPlayAgain(true)
+        let result = ""
+        if (playerChoice === machineChoice) {
+            result = "IT'S A TIE"
+        } else {
+            switch (playerChoice) {
+                case "rock":
+                    result = machineChoice === "scissors" ? "PLAYER WINS" : "PLAYER LOSES"
+                    break
+                case "paper":
+                    result = machineChoice === "rock" ? "PLAYER WINS" : "PLAYER LOSES"
+                    break
+                case "scissors":
+                    result = machineChoice === "paper" ? "PLAYER WINS" : "PLAYER LOSES"
+                    break
+            }
+        }
+
+        setGameState((prevState) => ({
+            ...prevState,
+            playGame: false,
+            playAgain: true,
+            playerChoice,
+            machineChoice,
+            result,
+            playerScore: result === "PLAYER WINS" ? prevState.playerScore + 1 : prevState.playerScore,
+            machineScore: result === "PLAYER LOSES" ? prevState.machineScore + 1 : prevState.machineScore
+        }))
     }
 
     const handlePlayAgain = () => {
