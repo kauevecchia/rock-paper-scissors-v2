@@ -1,6 +1,6 @@
-export function Results() {
+export function Results({ handlePlayAgain }) {
     return (
-        <div id="result-display" className="flex flex-col gap-2 items-center justify-center hidden animate-slideDownMb md:animate-slideDown">
+        <div id="result-display" className="flex flex-col gap-2 items-center justify-center animate-slideDownMb md:animate-slideDown">
             <div id="choicesDisplay" className="flex items-center justify-center gap-6">
                 <div className="flex flex-col gap-2">
                     <h2 className="font-bold text-2xl md:text-3xl">Player:</h2>
@@ -13,7 +13,7 @@ export function Results() {
                 </div>
             </div>
             <p id="result" className="text-center font-bold text-xl md:text-2xl"></p>
-            <button id="playAgainBtn" className="px-4 py-2 bg-sky-700 rounded-md text-white md:text-2xl md:px-6 md:py-3">Play Again</button>
+            <button id="playAgainBtn" className="px-4 py-2 bg-sky-700 rounded-md text-white md:text-2xl md:px-6 md:py-3" onClick={handlePlayAgain}>Play Again</button>
         </div>
     )
 }
